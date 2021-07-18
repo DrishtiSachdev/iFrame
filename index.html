@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+       
+    </head>
+    <style>
+        #hover_btn {
+            display: none;
+            z-index:1;
+        }
+       
+    </style>
+<body>
+
+
+
+<div class="myDiv"> passing URL</div>
+<div id="demo">
+    
+        <iframe id="myIframe" ></iframe>
+    <button id="hover_btn">Hover button</button>
+</div>
+
+<script>
+let myIframe=document.getElementById("myIframe");
+let endpoint="file:///C:/Users/Drishti%20Sachdev/Desktop/demo/index.html";
+let url_string=window.location.href;
+let url=new URL(url_string);
+let inframe_url=url.searchParams.get("inframe_url");
+let adsURL=endpoint+"?inframe_url="+inframe_url;
+
+myIframe.src=inframe_url;
+
+document.getElementById("myIframe").addEventListener("mouseover", function(event) {
+    document.getElementById("hover_btn").style.display = 'block';
+    
+})
+
+document.getElementById("myIframe").addEventListener("mouseout", function(event) {
+    document.getElementById("hover_btn").style.display = 'none';
+})
+
+// document.getElementById("a_href").setAttribute("href",inframe_url);
+</script>
+</body>
+
+
+</html>
